@@ -1,25 +1,38 @@
-function playSound(key) {
-  const audio = document.querySelector(`audio[data-key="${key}"]`);
-  const button = document.querySelector(`.drum[data-key="${key}"]`);
+const drums = document.querySelectorAll('.drum');
+const volumeControl = document.getElementById('volume');
 
-  if (!audio) return;
+let volume = volumeControl.value;
 
-  audio.currentTime = 0; // rewind to start
-  audio.play();
-
-  button.classList.add('playing');
-  setTimeout(() => {
-    button.classList.remove('playing');
-  }, 100);
-}
-
-document.addEventListener('keydown', (e) => {
-  playSound(e.key.toUpperCase());
+volumeControl.addEventListener('input', (e) => {
+  volume = e.target.value;
 });
 
-document.querySelectorAll('.drum').forEach(button => {
-  button.addEventListener('click', () => {
-    const key = button.getAttribute('data-key');
-    playSound(key);
+drums.forEach(drum => {
+  drum.addEventListener('click', () => {
+    playSound(drum.dataset.sound);
+    animateDrum(drum.dataset.key);
   });
 });
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key.toUpperCase();
+  const drum = document.querySelector(`.drum[data-key="${key}"]`);
+  if (drum) {
+    playSound(drum.dataset.sound);
+    animateDrum(key);
+  }
+});
+
+function playSound(filename) {
+  const audio = new Audio(`sounds/${filename}`);
+  audio.volume = volume;
+  audio.play();
+}
+
+function animateDrum(key) {
+  const drum = document.querySelector(`.drum[data-key="${key}"]`);
+  if (drum) {
+    drum.classList.add('active');
+    setTimeout(() => drum.classList.remove('active'), 150);
+  }
+}
