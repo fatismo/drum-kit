@@ -7,50 +7,48 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🥁 Drum Kit 🥁</h1>
+  <h1 class="title">🥁 Drum Kit 🎶</h1>
 
-  <div class="drum-container">
-    <button class="drum" data-key="A">
-      <div class="image-box"><img src="images/kick.png" alt="Kick"></div>
-      <span>A</span>
-    </button>
-    <button class="drum" data-key="S">
-      <div class="image-box"><img src="images/snare.png" alt="Snare"></div>
-      <span>S</span>
-    </button>
-    <button class="drum" data-key="D">
-      <div class="image-box"><img src="images/tom1.png" alt="Tom 1"></div>
-      <span>D</span>
-    </button>
-    <button class="drum" data-key="F">
-      <div class="image-box"><img src="images/tom2.png" alt="Tom 2"></div>
-      <span>F</span>
-    </button>
-    <button class="drum" data-key="G">
-      <div class="image-box"><img src="images/tom3.png" alt="Tom 3"></div>
-      <span>G</span>
-    </button>
-    <button class="drum" data-key="H">
-      <div class="image-box"><img src="images/tom4.png" alt="Tom 4"></div>
-      <span>H</span>
-    </button>
-    <button class="drum" data-key="J">
-      <div class="image-box"><img src="images/crash.png" alt="Crash"></div>
-      <span>J</span>
-    </button>
+  <div class="controls">
+    <label for="volume">🔊 Volume:</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
   </div>
 
-  <footer>Made by Md Enaitul Hoque</footer>
-
-  <!-- Sounds -->
-  <audio data-key="A" src="sounds/kick-bass.mp3"></audio>
-  <audio data-key="S" src="sounds/snare.mp3"></audio>
-  <audio data-key="D" src="sounds/tom-1.mp3"></audio>
-  <audio data-key="F" src="sounds/tom-2.mp3"></audio>
-  <audio data-key="G" src="sounds/tom-3.mp3"></audio>
-  <audio data-key="H" src="sounds/tom-4.mp3"></audio>
-  <audio data-key="J" src="sounds/crash.mp3"></audio>
-
+  <div class="drum-container">
+    <div class="drum" data-key="A" data-sound="tom-1.mp3">
+      <img src="images/tom1.png" alt="Tom 1">
+      <p>A - Tom 1</p>
+    </div>
+    <div class="drum" data-key="S" data-sound="tom-2.mp3">
+      <img src="images/tom2.png" alt="Tom 2">
+      <p>S - Tom 2</p>
+    </div>
+    <div class="drum" data-key="D" data-sound="tom-3.mp3">
+      <img src="images/tom3.png" alt="Tom 3">
+      <p>D - Tom 3</p>
+    </div>
+    <div class="drum" data-key="F" data-sound="tom-4.mp3">
+      <img src="images/tom4.png" alt="Tom 4">
+      <p>F - Tom 4</p>
+    </div>
+    <div class="drum" data-key="G" data-sound="crash.mp3">
+      <img src="images/crash.png" alt="Crash">
+      <p>G - Crash</p>
+    </div>
+    <div class="drum" data-key="H" data-sound="kick-bass.mp3">
+      <img src="images/kick.png" alt="Kick">
+      <p>H - Kick</p>
+    </div>
+    <div class="drum" data-key="J" data-sound="snare.mp3">
+      <img src="images/snare.png" alt="Snare">
+      <p>J - Snare</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>&copy; Made by Md Enaitul Hoque</footer>
   <script src="script.js"></script>
 </body>
 </html>
